@@ -3,17 +3,17 @@ import Redis from "ioredis";
 
 
 const pub = new Redis({
-    host: "redis-b59f5ee-razzrahul278-b349.a.aivencloud.com",
+    host: "",
     port: 18367,
     username: "default",
-    password: "AVNS_iuqxW9zpFmpDKgfJRO9",
+    password: "",
   });
 
 const sub = new Redis({
-    host: "redis-b59f5ee-razzrahul278-b349.a.aivencloud.com",
+    host: "",
     port: 18367,
     username: "default",
-    password: "AVNS_iuqxW9zpFmpDKgfJRO9",
+    password: "",
 });
 
 class SocketService {
@@ -47,8 +47,6 @@ class SocketService {
       if (channel === "MESSAGES") {
         console.log("new message from redis", message);
         io.emit("message", message);
-        // await produceMessage(message);
-        // console.log("Message Produced to Kafka Broker");
       }
     });
   }
